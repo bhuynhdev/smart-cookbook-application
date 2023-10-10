@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "title": "Beef and Brocoli",
+    "desc": "A super simple beef and brocoli dish",
+    "image": "brooke-lark-jUPOXXRNdcA-unsplash.jpg",
+    "rating": 3.5,
+    "simplicity": 5,
+    "categories": [
+      "Asian"
+    ],
+    "portion": 5,
+    "ingredients": [
+      {"name": "salt", "unit": "tbsp", "value": 3},
+      {"name": "sugar", "unit": "tbsp", "value": 5},
+      {"name": "garlic", "unit": "each", "value": 2},
+      {"name": "beef", "unit": "lbs", "value": 2},
+      {"name": "brocoli", "unit": "lbs", "value": 1},
+      {"name": "soy sauce", "unit": "tbsp", "value": 5}
+    ],
+    "directions": [
+      "Create the sauce: Peel & dice the garlic and mix with all the soy sauce",
+      "Slice the beef then marinade the beef in 3/4 of the sauce",
+      "Cut the brocoli into bite-sized pieces and steam them for 5-7 minutes",
+      "Saute all the beef for 5 minutes, then add in the steamed brocoli",
+      "Stir the pan evenly, and turn off the heat after 5 more minutes",
+      "Dish is finished. Pour the remaining sauce over the dish and enjoy"
+    ],
+    "calories": 32.0,
+    "fat": 1.0,
+    "protein": 1.0,
+    "sodium": 959.0
+  }
+]
