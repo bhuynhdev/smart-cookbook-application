@@ -8,6 +8,7 @@ export default function RecipeCard(props) {
       </a>
       <div className="px-2 py-2">
         <p className="text-lg font-bold">{recipeName}</p>
+        <p>3.5 <span>⭐</span></p>
         <p>Simplicity: 5/10</p>
         <p>Time: ~0.5 hours</p>
         <p>Match score: 7.5</p>

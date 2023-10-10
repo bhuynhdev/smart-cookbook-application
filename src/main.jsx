@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './global.css';
-import Root from './pages/root.jsx';
+import Root, { loader as rootLoader } from './pages/root.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    loader: rootLoader
   },
 ]);
 

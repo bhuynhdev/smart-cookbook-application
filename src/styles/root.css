@@ -5,8 +5,15 @@
 }
 
 .frame {
-  width: 393px;
-  height: 852px; /* Iphone 15 */
+  width: min(393px, 100vw);
+  height: 830px; /* Iphone 15 */
+  border: 1px solid slateblue;
+  border-radius: 0.5em;
+}
+
+.device {
+  width: 700px;
+  height: 450px;
   border: 1px solid slateblue;
   border-radius: 0.5em;
 }
