@@ -7,7 +7,7 @@ import recipes from '../recipe-db.json';
 export const useBearStore = create(set => ({
   step: 0,
   recipe: recipes[0],
-  nextStep: () => set(state => ({ step: Math.min(state.step + 1, state.recipe.directions.length) })),
+  nextStep: () => set(state => ({ step: Math.min(state.step + 1, state.recipe.directions.length - 1) })),
   prevStep: () => set(state => ({ step: Math.max(state.step - 1, 0) })),
   setRecipe: recipeData => set({ recipe: recipeData }),
 }));
