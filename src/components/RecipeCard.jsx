@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RecipeCard(props) {
   const {
     id = '1',
@@ -11,9 +13,9 @@ export default function RecipeCard(props) {
     <div className="recipe-card overflow-hidden rounded-lg bg-slate-700">
       <img className="h-24 w-full object-cover" src={'/' + image}></img>
       <div className="px-2 py-2">
-        <a href={`/recipe/${id}`} className="text-white">
+        <Link to={`/recipe/${id}`} className="text-white">
           <p className="text-lg font-bold">{title}</p>
-        </a>
+        </Link>
         <p>
           3.5 <span>⭐</span>
         </p>

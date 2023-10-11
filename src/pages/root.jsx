@@ -72,7 +72,7 @@ export default function Root() {
     <div className="layout grid grid-cols-1 gap-32 md:grid-cols-[1fr_auto]">
       <div className="frame flex flex-col px-4 py-6">
         <header className="mb-4 flex items-center justify-between">
-          <a href="#">LOGO</a>
+          <Link to="#">LOGO</Link>
           <nav>
             <ul className="flex items-center justify-end gap-3">
               <li className="list-none">
