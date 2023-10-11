@@ -1,42 +1,55 @@
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { getRecipe } from '../mock-backend';
 import { useBearStore } from './root';
 import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
+import { useShallow } from 'zustand/react/shallow';
 
 export function loader({ params }) {
   const recipe = getRecipe(params.recipeId);
-  useBearStore.setState({ recipe });
+  // useBearStore.setState({ recipe });
   return { recipe };
 }
 
 export default function RecipeSessionPage() {
-  const { recipe } = useLoaderData();
+  const { recipe: loadedRecipe } = useLoaderData();
 
-  const logs = useBearStore(state => state.logs);
+  const { recipe, logs } = useBearStore(state => ({ logs: state.logs, recipe: state.recipe }));
+  const { startSession, endSession } = useBearStore(state => ({
+    startSession: state.startSession,
+    endSession: state.endSession,
+    setRecipe: state.setRecipe,
+  }));
 
-  const logEndRef = useRef(null);
+  useEffect(() => {
+    startSession(loadedRecipe);
+    return () => endSession();
+  }, [startSession, endSession, loadedRecipe]);
 
   if (!recipe) {
     return (
       <div>
-        No recipe in session. Click <Link to="/">here</Link> to go back to home page
+        No recipe in session. Click <Link to={-1}>here</Link> to go back
       </div>
     );
   }
 
   return (
-    <div>
-      <p>Recipe in session...</p>
-      <h1 className="text-xl font-bold">{recipe.title}</h1>
-      <p>Initiated a cooking session to the smart device</p>
-      <p>Log:</p>
-      <ol>
-        {logs.map((log, i) => (
-          <li key={i}>{log}</li>
-        ))}
-      </ol>
-      <div></div>
+    <div className="flex flex-grow flex-col justify-end">
+      <div className="flex-grow">
+        <p>Recipe in session...</p>
+        <h1 className="text-xl font-bold">{recipe.title}</h1>
+        <p>Initiated a cooking session to the smart device</p>
+        <p>Log:</p>
+        <ol>
+          {logs.map((log, i) => (
+            <li key={i}>{log}</li>
+          ))}
+        </ol>
+      </div>
+      <button type="button" className="w-32 rounded-md bg-red-500 px-1 py-2 self-center" onClick={endSession}>
+        End Session
+      </button>
     </div>
   );
 }

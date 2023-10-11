@@ -3,7 +3,7 @@ export default function RecipeCard(props) {
 
   return (
     <div className="recipe-card overflow-hidden rounded-lg bg-slate-700">
-      <img className="max-h-24 w-full object-cover" src={imgSrc}></img>
+      <img className="max-h-24 w-full object-cover" src={"/" + imgSrc}></img>
       <div className="px-2 py-2">
         <a href={`/recipe/${recipeId}`} className="text-white">
           <p className="text-lg font-bold">{recipeName}</p>

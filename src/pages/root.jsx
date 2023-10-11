@@ -2,9 +2,9 @@ import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import { create } from 'zustand';
 import SmartDevice from '../components/SmartDevice';
 import '../styles/root.css';
-import recipes from '../recipe-db.json';
-import { useLocation } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
+// import recipes from '../recipe-db.json';
+// import { useLocation } from 'react-router-dom';
+// import SearchBar from '../components/SearchBar';
 
 export const useBearStore = create(set => ({
   step: 0,
@@ -28,6 +28,8 @@ export const useBearStore = create(set => ({
       return state;
     }),
   setRecipe: recipeData => set({ recipe: recipeData }),
+  startSession: recipe => set({ isSessionDone: false, recipe: recipe, step: 0 }),
+  endSession: () => set({ isSessionDone: true, logs: [], recipe: null, step: 0 }),
 }));
 
 export async function loader() {
@@ -44,7 +46,7 @@ export default function Root() {
 
   return (
     <div className="layout grid grid-cols-1 gap-32 md:grid-cols-[1fr_auto]">
-      <div className="frame px-4 pt-6">
+      <div className="frame flex flex-col px-4 py-6">
         <header className="mb-4 flex items-center justify-between">
           <a href="#">LOGO</a>
           <nav>

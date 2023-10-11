@@ -3,10 +3,16 @@ import { useShallow } from 'zustand/react/shallow';
 
 export default function SmartDevice() {
   // Zustand Bear store
-  const { nextStep, prevStep } = useBearStore(state => ({ nextStep: state.nextStep, prevStep: state.prevStep }));
-  const { step, recipe } = useBearStore(useShallow(state => ({ step: state.step, recipe: state.recipe })));
+  const { nextStep, prevStep, endSession } = useBearStore(state => ({
+    nextStep: state.nextStep,
+    prevStep: state.prevStep,
+    endSession: state.endSession,
+  }));
+  const { step, recipe, isSessionDone } = useBearStore(
+    useShallow(state => ({ step: state.step, recipe: state.recipe, isSessionDone: state.isSessionDone })),
+  );
 
-  if (!recipe) {
+  if (isSessionDone || !recipe) {
     return <div className="device h-[450px] w-[700px] rounded-lg border-2 border-violet-800">No recipe in session</div>;
   }
 
@@ -30,8 +36,8 @@ export default function SmartDevice() {
           >
             {shouldShowPrevButton ? 'Prev' : ''}
           </button>
-          <button type="button" className="w-24 rounded-md bg-red-500 px-1 py-2">
-            Food check
+          <button type="button" className="w-32 rounded-md bg-red-500 px-1 py-2" onClick={endSession}>
+            End Session
           </button>
           <button
             type="button"
