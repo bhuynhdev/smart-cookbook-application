@@ -38,7 +38,6 @@ export default function SearchPage() {
     <div>
       <SearchBar />
       {recipes.length} recipes found
-      <p>{params.hours}</p>
       <div id="search-result" className="grid grid-cols-2 gap-4">
         {recipes.map((recipeInfo, i) => (
           <RecipeCard key={i} {...recipeInfo} />
