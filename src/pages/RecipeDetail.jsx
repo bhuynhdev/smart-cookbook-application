@@ -17,7 +17,7 @@ export default function RecipeDetailPage() {
     <>
       <SearchBar />
       <div>
-        <img src={'/' + image} className="mb-3 aspect-video object-cover" />
+        <img src={'/' + image} className="mb-3 aspect-video object-cover w-full" />
         <h1 className="inline text-xl font-bold">{title}</h1>
         <p className="ml-4 inline">{rating} ⭐</p>
         <p>{desc}</p>

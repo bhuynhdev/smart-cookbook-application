@@ -32,11 +32,36 @@ export const useBearStore = create(set => ({
   endSession: () => set({ isSessionDone: true, logs: [], recipe: null, step: 0 }),
 }));
 
-export async function loader() {
-  const instructions = `
-  - Search in the search bar, and click "Advanced filter" for extra filters
+export async function loader({ request }) {
+  const url = new URL(request.url);
+  let instructions = '';
+
+  if (url.pathname === '/') {
+    instructions = `
+  - Search in the search bar, or click onto the Search Nav item. Click "Advanced filter" for extra filters
   - Click on a recipe to go to that recipe's detail page
   `;
+  } else if (url.pathname.includes('search')) {
+    instructions = `
+  - Search in the search bar, or click onto the 'Search' nav item. Click "Advanced filter" for extra filters
+  - The Advanced Filter allows filtering by protein, cooking time, and simplicity (number of steps)
+  - Click on a recipe to go to that recipe's detail page
+    `;
+  } else if (url.pathname.includes('recipe')) {
+    instructions = `
+  - Scroll and read through the recipe detail
+  - Click "Start session" button at the end to start a streaming session to the rectangular screen, so that you can start interracting with the recipe without the phone
+    `;
+  } else if (url.pathname.includes("session")) {
+    instructions = `
+  - The mobile phone UI is now a log of action took on the wall screen
+  - The Wall screen is supposedly controlled through gestures (in real life). Simulation buttons are provided
+  - Click Next or Previous to progress through the recipe
+  - Click End Session to end the cooking session
+  - Clicking on other routes on the mobile app UI (such as Home or Search) will also end the session
+    `
+  }
+
   return { instructions };
 }
 
@@ -69,15 +94,19 @@ export default function Root() {
 
       <div>
         <SmartDevice />
-        <div className="instructions mt-6 space-y-1">
+        <div className="instructions mt-6 space-y-2">
           <p className="font-bold">Instructions</p>
-          <p>These instructions show the actions a user can perform on the smartphone app UI on the left</p>
+          <p>The Left Screen is the mobile app UI, which has been sized to model iPhone aspect ratio</p>
           <p>
-            I&apos;ve tried to made the UI as intuitive as possible. Putting the instructions here for extra clarity
+            The Right Screen is a wall-mounted device screen streams the recipe content from the mobile app and is
+            supposedly controlled through gesture so that users needn&apos;t touch anything while cooking
+          </p>
+          <p>
+            The below instructions texts show the actions a user can take, and update as you navigate through the pages: 
           </p>
           <ul>
             {instructions.split('\n').map((text, i) => (
-              <li key={i}>{text}</li>
+              <li key={i}>{text.trim()}</li>
             ))}
           </ul>
         </div>

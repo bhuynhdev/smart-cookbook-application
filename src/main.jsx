@@ -12,6 +12,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    shouldRevalidate: () => true,
     loader: rootLoader,
     children: [
       {

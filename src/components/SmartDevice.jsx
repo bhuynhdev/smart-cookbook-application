@@ -13,14 +13,14 @@ export default function SmartDevice() {
   );
 
   if (isSessionDone || !recipe) {
-    return <div className="device h-[450px] w-[700px] rounded-lg border-2 border-violet-800">No recipe in session</div>;
+    return <div className="device h-[350px] w-[700px] rounded-lg border-2 border-violet-800">No recipe in session</div>;
   }
 
   const shouldShowNextButton = step < recipe.directions.length - 1;
   const shouldShowPrevButton = step > 0;
 
   return (
-    <div className="device flex h-[450px] w-[700px] flex-col rounded-lg border-2 border-violet-800">
+    <div className="device flex h-[350px] w-[700px] flex-col rounded-lg border-2 border-violet-800">
       <p className="text-center">Device camera</p>
       <div className="flex flex-grow flex-col justify-end p-6">
         <div className="flex-grow">
