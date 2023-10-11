@@ -34,7 +34,6 @@ export const useBearStore = create(set => ({
 
 export async function loader() {
   const instructions = `
-  - Click on the Profile picture on the top right to go to Profile page
   - Search in the search bar, and click "Advanced filter" for extra filters
   - Click on a recipe to go to that recipe's detail page
   `;

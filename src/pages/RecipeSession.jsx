@@ -3,11 +3,9 @@ import { getRecipe } from '../mock-backend';
 import { useBearStore } from './root';
 import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
-import { useShallow } from 'zustand/react/shallow';
 
 export function loader({ params }) {
   const recipe = getRecipe(params.recipeId);
-  // useBearStore.setState({ recipe });
   return { recipe };
 }
 

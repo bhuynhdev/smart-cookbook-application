@@ -2,7 +2,6 @@ import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
 import { filterRecipe } from '../mock-backend';
 import SearchBar from '../components/SearchBar';
-import { useSearchParams } from 'react-router-dom';
 
 export function loader({ request }) {
   const url = new URL(request.url);
