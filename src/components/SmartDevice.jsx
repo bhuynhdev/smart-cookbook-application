@@ -24,7 +24,7 @@ export default function SmartDevice() {
       <p className="text-center">Device camera</p>
       <div className="flex flex-grow flex-col justify-end p-6">
         <div className="flex-grow">
-          <p>Step {step}:</p>
+          <p>Step {step + 1}:</p>
           <p>{recipe.directions[step]}</p>
         </div>
         <div className="flex justify-between">
