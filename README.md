@@ -1,8 +1,27 @@
-# React + Vite
+# Smart Cookbook application by Bao Huynh
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Deployed on [Vercel](https://smart-cookbook-baohuynh.vercel.app/)
 
-Currently, two official plugins are available:
+## Instructions:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repo: `git clone https://github.com/bhuynhdev/smart-cookbook-application`
+
+2. Install dependencies:
+```bash
+# Preferably if you have pnpm, since I'm using pnpm
+pnpm install
+
+# Or
+npm install
+```
+
+3. Run the project
+```bash
+# If you have pnpm
+pnpm dev
+
+# Or
+npm run dev
+```
+
+4. The project should be up at `http://localhost:5173`
