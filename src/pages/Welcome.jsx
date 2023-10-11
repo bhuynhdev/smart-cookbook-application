@@ -22,10 +22,10 @@ export default function WelcomePage() {
         <p>Suggested recipes</p>
       </div>
       <div id="suggested-recipes" className="grid grid-cols-2 gap-4">
-        <RecipeCard recipeId="1" />
-        <RecipeCard recipeId="2" />
-        <RecipeCard recipeId="3" />
-        <RecipeCard recipeId="4" />
+        <RecipeCard />
+        <RecipeCard />
+        <RecipeCard />
+        <RecipeCard  />
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import RecipeDetailPage, { loader as recipeDetailLoader } from './pages/RecipeDe
 import RecipeSessionPage, { loader as recipeSessionLoader } from './pages/RecipeSession';
 import Root, { loader as rootLoader } from './pages/root.jsx';
 import WelcomePage from './pages/Welcome';
-import SearchPage from './pages/Search';
+import SearchPage, { loader as searchLoader } from './pages/Search';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <SearchPage />,
-        loader: recipeDetailLoader,
+        loader: searchLoader,
       },
       {
         path: '/recipe/:recipeId',
