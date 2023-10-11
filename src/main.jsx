@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './global.css';
-import Root, { loader as rootLoader } from './pages/root.jsx';
 import RecipeDetailPage, { loader as recipeDetailLoader } from './pages/RecipeDetail';
+import RecipeSessionPage, { loader as recipeSessionLoader } from './pages/RecipeSession';
+import Root, { loader as rootLoader } from './pages/root.jsx';
 import WelcomePage from './pages/Welcome';
 
 const router = createBrowserRouter([
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
         path: '/recipe/:recipeId',
         element: <RecipeDetailPage />,
         loader: recipeDetailLoader,
+      },
+      {
+        path: '/session/:recipeId',
+        element: <RecipeSessionPage />,
+        loader: recipeSessionLoader,
       },
     ],
   },

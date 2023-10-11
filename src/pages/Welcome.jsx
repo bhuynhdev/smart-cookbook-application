@@ -1,8 +1,10 @@
-import RecipeCard from "../components/RecipeCard";
+import RecipeCard from '../components/RecipeCard';
+import SearchBar from '../components/SearchBar';
 
 export default function WelcomePage() {
   return (
     <>
+      <SearchBar />
       <div id="welcome" className="mb-2 space-y-2">
         <h1 className="text-3xl font-bold">Welcome back, BH</h1>
         <p>In the past week, you have:</p>
